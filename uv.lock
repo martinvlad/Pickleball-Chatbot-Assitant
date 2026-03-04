@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.13"
 
 [[package]]
@@ -984,6 +984,31 @@ wheels = [
 ]
 
 [[package]]
+name = "pickleball-assistant"
+version = "1.0.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "anthropic" },
+    { name = "chromadb" },
+    { name = "fastapi" },
+    { name = "python-dotenv" },
+    { name = "python-multipart" },
+    { name = "sentence-transformers" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "anthropic", specifier = "==0.58.2" },
+    { name = "chromadb", specifier = "==1.0.15" },
+    { name = "fastapi", specifier = "==0.116.1" },
+    { name = "python-dotenv", specifier = "==1.1.1" },
+    { name = "python-multipart", specifier = "==0.0.20" },
+    { name = "sentence-transformers", specifier = "==5.0.0" },
+    { name = "uvicorn", specifier = "==0.35.0" },
+]
+
+[[package]]
 name = "pillow"
 version = "11.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1545,31 +1570,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/0a/69/662169fdb92fb96ec3eaee218cf540a629d629c86d7993d9651226a6789b/starlette-0.47.1.tar.gz", hash = "sha256:aef012dd2b6be325ffa16698f9dc533614fb1cebd593a906b90dc1025529a79b", size = 2583072, upload-time = "2025-06-21T04:03:17.337Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/82/95/38ef0cd7fa11eaba6a99b3c4f5ac948d8bc6ff199aabd327a29cc000840c/starlette-0.47.1-py3-none-any.whl", hash = "sha256:5e11c9f5c7c3f24959edbf2dffdc01bba860228acf657129467d8a7468591527", size = 72747, upload-time = "2025-06-21T04:03:15.705Z" },
-]
-
-[[package]]
-name = "starting-codebase"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "anthropic" },
-    { name = "chromadb" },
-    { name = "fastapi" },
-    { name = "python-dotenv" },
-    { name = "python-multipart" },
-    { name = "sentence-transformers" },
-    { name = "uvicorn" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "anthropic", specifier = "==0.58.2" },
-    { name = "chromadb", specifier = "==1.0.15" },
-    { name = "fastapi", specifier = "==0.116.1" },
-    { name = "python-dotenv", specifier = "==1.1.1" },
-    { name = "python-multipart", specifier = "==0.0.20" },
-    { name = "sentence-transformers", specifier = "==5.0.0" },
-    { name = "uvicorn", specifier = "==0.35.0" },
 ]
 
 [[package]]
