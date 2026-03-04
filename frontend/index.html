@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>🏓 Pickleball Assistant</title>
+    <link rel="stylesheet" href="style.css?v=11">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pickleball Assistant</h1>
+            <p class="subtitle">Ask questions about rules, strategy, and technique</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <!-- Course Stats -->
+                <div class="sidebar-section">
+                    <details class="stats-collapsible" open>
+                        <summary class="stats-header">📚 Knowledge Base</summary>
+                        <div class="course-stats" id="courseStats">
+                            <div class="stat-item">
+                                <span class="stat-label">Number of courses:</span>
+                                <span class="stat-value" id="totalCourses">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <div class="course-titles" id="courseTitles">
+                                    <span class="loading">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Suggested Questions -->
+                <div class="sidebar-section">
+                    <details class="suggested-collapsible" open>
+                        <summary class="suggested-header">Try asking:</summary>
+                        <div class="suggested-items">
+                            <button class="suggested-item" data-question="What are the rules for the kitchen (non-volley zone)?">Kitchen rules</button>
+                            <button class="suggested-item" data-question="What is a third shot drop and how do I hit it?">Third shot drop</button>
+                            <button class="suggested-item" data-question="What are the basic serving rules in pickleball?">Serving rules</button>
+                            <button class="suggested-item" data-question="What is dinking and when should I use it?">Dinking strategy</button>
+                        </div>
+                    </details>
+                </div>
+            </aside>
+
+            <!-- Main Chat Area -->
+            <main class="chat-main">
+                <div class="chat-container">
+                    <div class="chat-toolbar">
+                        <button id="newChatBtn" onclick="createNewSession()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            New Chat
+                        </button>
+                    </div>
+                    <div id="chatMessages" class="chat-messages"></div>
+                    <div class="chat-input-container">
+                        <input
+                            type="text"
+                            id="chatInput"
+                            placeholder="Ask about pickleball rules, strategy, or technique..."
+                            autocomplete="off"
+                        >
+                        <button id="sendButton">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js?v=11"></script>
+</body>
+</html>
