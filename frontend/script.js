@@ -56,11 +56,25 @@ function setupEventListeners() {
         button.addEventListener('click', (e) => {
             const question = e.target.getAttribute('data-question');
             chatInput.value = question;
+            closeSidebar();
             sendMessage();
         });
     });
 }
 
+
+// Sidebar toggle (mobile)
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('visible');
+}
+
+function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('visible');
+}
 
 // Chat Functions
 async function sendMessage() {

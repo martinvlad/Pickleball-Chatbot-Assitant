@@ -723,22 +723,88 @@ details[open] .suggested-header::before {
     transform: translateX(2px);
 }
 
+/* Hamburger button — hidden on desktop */
+#menuBtn {
+    display: none;
+}
+
+/* Sidebar overlay — hidden by default */
+#sidebarOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 199;
+}
+
+#sidebarOverlay.visible {
+    display: block;
+}
+
+/* Close button inside sidebar — hidden on desktop */
+.sidebar-close {
+    display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        overflow: hidden;
-    }
-
-    /* Hide sidebar entirely on mobile — full screen for chat */
+    /* Sidebar becomes a slide-in drawer */
     .sidebar {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        width: 280px;
+        height: 100vh;
+        height: 100dvh;
+        z-index: 200;
+        transition: transform 0.3s ease;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+        padding-top: 1rem;
     }
 
-    .chat-main {
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Show close button inside drawer */
+    .sidebar-close {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         width: 100%;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: 0 0.5rem 0.75rem;
+    }
+
+    .sidebar-close:hover {
+        color: var(--text-primary);
+    }
+
+    /* Show hamburger, space between hamburger and new chat */
+    #menuBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 0.6rem;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    #menuBtn:hover {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
     }
 
     .chat-toolbar {
+        justify-content: space-between;
         padding: 0.5rem 1rem 0;
     }
 
@@ -752,6 +818,7 @@ details[open] .suggested-header::before {
 
     .chat-input-container {
         padding: 0.75rem 1rem;
+        padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
         gap: 0.5rem;
     }
 
