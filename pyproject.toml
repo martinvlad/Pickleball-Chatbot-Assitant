@@ -1,7 +1,7 @@
 [project]
-name = "starting-codebase"
-version = "0.1.0"
-description = "Add your description here"
+name = "pickleball-assistant"
+version = "1.0.0"
+description = "A RAG-powered pickleball assistant using Claude"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
