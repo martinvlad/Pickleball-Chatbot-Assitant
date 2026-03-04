@@ -3,7 +3,6 @@ from chromadb.config import Settings
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
 from models import Course, CourseChunk
-from sentence_transformers import SentenceTransformer
 
 @dataclass
 class SearchResults:
@@ -34,18 +33,16 @@ class SearchResults:
 class VectorStore:
     """Vector storage using ChromaDB for course content and metadata"""
     
-    def __init__(self, chroma_path: str, embedding_model: str, max_results: int = 5):
+    def __init__(self, chroma_path: str, max_results: int = 5):
         self.max_results = max_results
         # Initialize ChromaDB client
         self.client = chromadb.PersistentClient(
             path=chroma_path,
             settings=Settings(anonymized_telemetry=False)
         )
-        
-        # Set up sentence transformer embedding function
-        self.embedding_function = chromadb.utils.embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name=embedding_model
-        )
+
+        # Use ChromaDB's built-in ONNX embedding function (no PyTorch needed)
+        self.embedding_function = chromadb.utils.embedding_functions.DefaultEmbeddingFunction()
         
         # Create collections for different types of data
         self.course_catalog = self._create_collection("course_catalog")  # Course titles/instructors
