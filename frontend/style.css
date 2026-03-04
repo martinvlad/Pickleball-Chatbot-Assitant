@@ -329,6 +329,17 @@ header h1 {
 }
 
 /* Welcome message special styling */
+.welcome-inline-img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    display: inline;
+    vertical-align: middle;
+    margin: 0 2px;
+    position: relative;
+    top: -2px;
+}
+
 .message.welcome-message .message-content {
     background: var(--surface);
     border: 2px solid var(--border-color);

@@ -217,7 +217,7 @@ function escapeHtml(text) {
 async function createNewSession() {
     currentSessionId = null;
     chatMessages.innerHTML = '';
-    addMessage('Welcome to the Pickleball Assistant! I can help you with questions about rules, strategy, and technique. What would you like to know?', 'assistant', null, true);
+    addMessage('Welcome to the Pickleball Assistant! <img src="racket.png" class="welcome-inline-img"> I can help you with questions about rules, strategy, and technique. What would you like to know?', 'assistant', null, true);
 }
 
 // Load course statistics
